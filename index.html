@@ -590,6 +590,21 @@ header nav ul {
   header .hamburger { display: inline-block !important; }
 }
 
+    /* 1) Safe-area (iOS notch) + lekki oddech u góry */
+header{
+  padding-top: env(safe-area-inset-top);
+}
+
+/* 2) Dodatkowy odstęp wizualny (opcjonalnie 6–10px) */
+header .nav{
+  padding-top: 8px;   /* było 12px 0; albo dodaj tylko top */
+}
+
+/* Jeśli teraz robi się za wysoki header, możesz skompensować */
+header .nav{
+  padding-bottom: 10px; /* opcjonalnie */
+}
+
   </style>
 </head>
 
