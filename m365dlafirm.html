@@ -1,0 +1,1276 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0b1220" />
+
+  <title>Microsoft dla firm (SMB) — AI future-ready | microsoftdlafirm.pl</title>
+  <meta name="description" content="Microsoft 365 dla firm SMB: licencje, wdrożenie, bezpieczeństwo, backup oraz Copilot. Przygotuj firmę na erę AI — prosto i bezpiecznie." />
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    /* ===========================
+       Fluent-ish / Microsoft dark
+       =========================== */
+    :root{
+      --bg: #0b1220;            /* deep navy */
+      --bg2:#0f1a2e;            /* section */
+      --card:#121c33;           /* cards */
+      --card2:#0d162a;          /* alt cards */
+      --text:#e8eefc;           /* base text */
+      --muted:#a9b6d6;          /* muted */
+      --line: rgba(232,238,252,.10);
+      --accent:#5aa7ff;         /* fluent blue */
+      --accent2:#7c5cff;        /* secondary accent */
+      --good:#33d17a;
+      --warn:#ffcc00;
+      --bad:#ff5c7a;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 22px;
+      --max: 1120px;
+      --glass: rgba(18, 28, 51, .65);
+      --blur: blur(14px);
+      --focus: 0 0 0 3px rgba(90,167,255,.35);
+      --font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Inter", "Roboto", Arial, sans-serif;
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(90,167,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 90% 0%, rgba(124,92,255,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg), #070b14 60%, #05070d);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px; border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(18, 28, 51, .40);
+      backdrop-filter: var(--blur);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .dot{ width:8px; height:8px; border-radius:99px; background: var(--accent); box-shadow: 0 0 0 4px rgba(90,167,255,.16); }
+
+/* Header */
+/* Header layout: nie pozwalaj na łamanie wiersza */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;         /* ← klucz */
+}
+
+/* Brand niech nie rozpycha za mocno */
+.brand {
+  flex: 0 0 auto;
+  min-width: 0;              /* pozwala ciąć */
+}
+
+/* Środkowe menu ma się kurczyć, a nie spychać przycisków */
+header nav {
+  flex: 1 1 auto;            /* ← klucz */
+  min-width: 0;
+}
+
+/* Samo menu niech nie zawija */
+header nav ul {
+  flex-wrap: nowrap;         /* ← klucz */
+  white-space: nowrap;       /* ← klucz */
+}
+
+/* Prawa strona (CTA) ma być zawsze w 1 linii */
+.actions {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;         /* ← klucz */
+  white-space: nowrap;       /* ← klucz */
+}
+
+/* Przyciski niech się nie rozciągają a tekst niech zostaje w 1 linii */
+.btn {
+  white-space: nowrap;       /* ← klucz */
+}
+    .brand{
+      display:flex; align-items:center; gap: 12px;
+      min-width: 220px;
+    }
+    .logo{
+      width: 34px; height: 34px; border-radius: 10px;
+      background:
+        linear-gradient(135deg, rgba(90,167,255,.95), rgba(124,92,255,.95));
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+    }
+    .brand .t1{ font-weight: 650; letter-spacing: .2px; font-size: 14px; }
+    .brand .t2{ font-size: 12px; color: var(--muted); margin-top: -2px; }
+
+    nav ul{
+      display:flex; gap: 14px; list-style:none; padding:0; margin:0;
+      align-items:center;
+    }
+    nav a{
+      padding: 10px 10px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+    nav a:hover{ color: var(--text); border-color: rgba(232,238,252,.10); background: rgba(18, 28, 51, .35); }
+    .actions{ display:flex; align-items:center; gap: 10px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(232,238,252,.12);
+      background: rgba(18, 28, 51, .55);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.18);
+      cursor:pointer;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(90,167,255,.35); background: rgba(18, 28, 51, .75); }
+    .btn:focus{ outline:none; box-shadow: var(--focus); }
+    .btn.primary{
+      border-color: rgba(90,167,255,.45);
+      background: linear-gradient(135deg, rgba(90,167,255,.95), rgba(90,167,255,.65));
+      color: #071022;
+    }
+    .btn.primary:hover{
+      border-color: rgba(90,167,255,.65);
+      background: linear-gradient(135deg, rgba(90,167,255,1), rgba(124,92,255,.80));
+    }
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(232,238,252,.12);
+      color: var(--muted);
+      box-shadow:none;
+    }
+    .btn.ghost:hover{ color: var(--text); background: rgba(18, 28, 51, .35); }
+
+    /* Mobile menu */
+    .hamburger{
+      display:none;
+      width:42px; height:42px;
+      border-radius: 14px;
+      border: 1px solid rgba(232,238,252,.12);
+      background: rgba(18, 28, 51, .55);
+      backdrop-filter: blur(14px);
+      cursor:pointer;
+    }
+    .hamburger span{ display:block; width:18px; height:2px; background: var(--text); margin: 6px auto; border-radius: 99px; opacity:.9; }
+    .drawer{
+      display:none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 50;
+    }
+    .drawer .panel{
+      position:absolute;
+      right: 0; top: 0;
+      height: 100vh;
+      width: min(420px, 92vw);
+      background: rgba(13, 22, 42, .92);
+      border-left: 1px solid rgba(232,238,252,.10);
+      backdrop-filter: blur(16px);
+      padding: 18px;
+    }
+    .drawer .panel .top{
+      display:flex; align-items:center; justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(232,238,252,.08);
+      margin-bottom: 12px;
+    }
+    .drawer nav a{ display:block; padding: 12px 10px; }
+    .drawer .actions{ margin-top: 14px; display:grid; gap: 10px; }
+
+    /* Hero */
+    .hero{
+      padding: 56px 0 30px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .heroCard{
+      background: radial-gradient(900px 420px at 20% 10%, rgba(90,167,255,.18), transparent 55%),
+                  radial-gradient(700px 380px at 90% 20%, rgba(124,92,255,.18), transparent 55%),
+                  rgba(18, 28, 51, .55);
+      border: 1px solid rgba(232,238,252,.10);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      backdrop-filter: var(--blur);
+      overflow:hidden;
+      position: relative;
+    }
+    .heroCard::after{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(90,167,255,.22), transparent 60%);
+      filter: blur(1px);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    h1{
+      margin: 12px 0 8px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -.6px;
+    }
+    .sub{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+      margin: 0 0 18px;
+    }
+    .ctaRow{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .mini{
+      margin-top: 16px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .mini span{
+      border:1px solid rgba(232,238,252,.12);
+      background: rgba(13, 22, 42, .35);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    .sideCard{
+      background: rgba(18, 28, 51, .45);
+      border: 1px solid rgba(232,238,252,.10);
+      border-radius: var(--radius2);
+      box-shadow: 0 12px 32px rgba(0,0,0,.22);
+      padding: 20px;
+      backdrop-filter: var(--blur);
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sideCard h3{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .sideCard p{ margin:0 0 14px; color: var(--muted); }
+    .kpis{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .kpi{
+      border: 1px solid rgba(232,238,252,.10);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(13, 22, 42, .40);
+    }
+    .kpi .n{ font-size: 18px; font-weight: 700; letter-spacing: -.3px; }
+    .kpi .l{ color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+    /* Sections */
+    section{ padding: 44px 0; }
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -.3px;
+    }
+    .lead{ margin: 6px 0 0; color: var(--muted); max-width: 80ch; }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .card{
+      border: 1px solid rgba(232,238,252,.10);
+      border-radius: var(--radius);
+      background: rgba(18, 28, 51, .50);
+      backdrop-filter: var(--blur);
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.18);
+    }
+    .card.alt{ background: rgba(13, 22, 42, .55); }
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -.2px;
+    }
+    .card p{ margin: 0; color: var(--muted); }
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+    }
+    .list li{ padding: 8px 0; border-top: 1px dashed rgba(232,238,252,.10); }
+    .list li:first-child{ border-top: none; }
+    .tag{
+      display:inline-flex;
+      margin-top: 10px;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(232,238,252,.12);
+      color: var(--muted);
+      background: rgba(13, 22, 42, .35);
+    }
+    .accentLine{
+      height: 1px;
+      background: linear-gradient(90deg, rgba(90,167,255,.6), rgba(124,92,255,.4), transparent);
+      margin: 12px 0 0;
+      opacity: .7;
+    }
+
+    /* Pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .priceCard{
+      border: 1px solid rgba(232,238,252,.10);
+      border-radius: 22px;
+      background: rgba(18, 28, 51, .55);
+      backdrop-filter: var(--blur);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .priceCard.featured{
+      border-color: rgba(90,167,255,.35);
+      background: radial-gradient(900px 420px at 25% 10%, rgba(90,167,255,.16), transparent 55%),
+                  rgba(18, 28, 51, .60);
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(90,167,255,.40);
+      color: rgba(200, 230, 255, .95);
+      background: rgba(90,167,255,.12);
+      margin-bottom: 10px;
+    }
+    .priceName{ font-size: 18px; font-weight: 750; letter-spacing: -.2px; margin: 0 0 6px; }
+    .priceDesc{ margin:0 0 12px; color: var(--muted); }
+    .price{ font-size: 26px; font-weight: 850; letter-spacing: -.7px; margin: 10px 0; }
+    .price small{ font-size: 12px; color: var(--muted); font-weight: 600; }
+    .bullets{ margin: 10px 0 16px; color: var(--muted); padding-left: 18px; }
+    .bullets li{ margin: 8px 0; }
+
+    /* Audit */
+    .audit{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .check{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(232,238,252,.10);
+      background: rgba(13, 22, 42, .40);
+      margin: 10px 0;
+    }
+    input[type="checkbox"]{
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--accent);
+    }
+    .scoreBox{
+      border-radius: 22px;
+      border: 1px solid rgba(232,238,252,.10);
+      background: rgba(18, 28, 51, .55);
+      backdrop-filter: var(--blur);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      display:flex; flex-direction: column; gap: 10px;
+    }
+    .score{
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -.8px;
+    }
+    .meter{
+      height: 10px; border-radius: 99px;
+      background: rgba(232,238,252,.10);
+      overflow:hidden;
+    }
+    .meter > div{
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--bad), var(--warn), var(--good));
+      border-radius: 99px;
+      transition: width .25s ease;
+    }
+    .result{
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(232,238,252,.10);
+      background: rgba(13, 22, 42, .45);
+      color: var(--muted);
+    }
+    .result strong{ color: var(--text); }
+
+    /* FAQ */
+    .faq{
+      margin-top: 16px;
+      display:grid;
+      gap: 10px;
+    }
+    details{
+      border: 1px solid rgba(232,238,252,.10);
+      background: rgba(18, 28, 51, .45);
+      border-radius: 18px;
+      padding: 12px 14px;
+      backdrop-filter: var(--blur);
+    }
+    summary{
+      list-style: none;
+      cursor: pointer;
+      font-weight: 650;
+      letter-spacing: -.2px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{ margin: 10px 0 2px; color: var(--muted);}
+    .hint{ color: var(--muted); font-size: 12px; margin-top: 6px; }
+
+    /* Footer */
+    footer{
+      padding: 36px 0 44px;
+      border-top: 1px solid rgba(232,238,252,.08);
+      background: rgba(7, 11, 20, .35);
+      backdrop-filter: blur(14px);
+    }
+    .footGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .fine{ color: var(--muted); font-size: 12px; margin-top:10px; }
+
+    /* Utilities */
+    .muted{ color: var(--muted); }
+    .row{ display:flex; gap: 10px; flex-wrap: wrap; align-items:center; }
+
+    /* Responsive */
+    @media (max-width: 1180px){
+      .heroGrid{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .grid2{ grid-template-columns: 1fr; }
+      .pricing{ grid-template-columns: 1fr; }
+      .audit{ grid-template-columns: 1fr; }
+      nav{ display:none; }
+      .hamburger{ display:inline-block; }
+      .brand{ min-width: unset; }
+      .footGrid{ grid-template-columns: 1fr; }
+      .kpis{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{ transition: none !important; scroll-behavior: auto; }
+    }
+
+/* === HARD OVERRIDE: drawer zawsze w tej samej wersji === */
+
+/* panel ma przewijanie, żeby nic nie "znikało" przy małej wysokości */
+.drawer .panel{
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+/* nav zajmuje miejsce i nie może zniknąć */
+.drawer .drawerNav{
+  display: grid !important;
+  gap: 8px !important;
+  padding-top: 2px !important;
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  min-height: 120px !important;
+}
+
+/* linki MUSZĄ być kafelkami – niezależnie od breakpointów */
+.drawer .drawerNav a,
+.drawer .drawerNav .drawerLink{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 12px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(232,238,252,.10) !important;
+  background: rgba(18, 28, 51, .35) !important;
+  color: var(--text) !important;
+  font-weight: 650 !important;
+  letter-spacing: -.1px !important;
+  white-space: nowrap !important;
+}
+
+/* CTA zawsze na dole */
+.drawer .drawerActions{
+  margin-top: auto !important;
+  display: grid !important;
+  gap: 10px !important;
+  padding-top: 10px !important;
+  border-top: 1px solid rgba(232,238,252,.08) !important;
+}
+
+.drawer .drawerActions .btn{
+  width: 100% !important;
+  justify-content: center !important;
+  padding: 14px 14px !important;
+  border-radius: 16px !important;
+}
+
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="#top" aria-label="microsoftdlafirm.pl">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="t1">Microsoft 365</div>
+          <div class="t2">dla firm • AI future-ready</div>
+        </div>
+      </a>
+
+      <nav aria-label="Główna nawigacja">
+        <ul>
+          <li><a href="#oferta">Oferta</a></li>
+          <li><a href="#scenariusze">Scenariusze</a></li>
+          <li><a href="#proces">Jak działamy</a></li>
+          <li><a href="#cennik">Pakiety</a></li>
+          <li><a href="#ai-ready">AI Ready</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="btn ghost" href="#audit">Gotowość AI</a>
+        <a class="btn primary" href="#kontakt">Bezpłatna analiza</a>
+        <button class="hamburger" aria-label="Otwórz menu" aria-controls="drawer" aria-expanded="false" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="panel" role="dialog" aria-modal="true" aria-label="Menu mobilne">
+    <div class="top">
+      <div class="row">
+        <div class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:9px;"></div>
+        <div>
+          <div style="font-weight:700">Menu</div>
+          <div class="muted" style="font-size:12px">microsoftdlafirm.pl</div>
+        </div>
+      </div>
+      <button class="btn ghost" id="closeDrawer" aria-label="Zamknij menu">Zamknij</button>
+    </div>
+
+    <nav class="drawerNav" aria-label="Nawigacja mobilna">
+      <a href="#oferta" class="drawerLink js-close">Oferta</a>
+      <a href="#scenariusze" class="drawerLink js-close">Scenariusze</a>
+      <a href="#proces" class="drawerLink js-close">Jak działamy</a>
+      <a href="#cennik" class="drawerLink js-close">Pakiety</a>
+      <a href="#ai-ready" class="drawerLink js-close">AI Ready</a>
+      <a href="#audit" class="drawerLink js-close">Mini-audyt</a>
+      <a href="#faq" class="drawerLink js-close">FAQ</a>
+      <a href="#kontakt" class="drawerLink js-close">Kontakt</a>
+    </nav>
+
+    <div class="actions">
+      <a class="btn primary js-close" href="#kontakt">Bezpłatna analiza</a>
+      <a class="btn js-close" href="#cennik">Dobierz pakiet</a>
+    </div>
+
+    <div class="fine">Tip: Dodaj tu linki do regulaminu / polityki prywatności, jeśli potrzebujesz.</div>
+  </div>
+</div>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="heroGrid">
+        <div class="heroCard">
+          <span class="pill"><span class="dot" aria-hidden="true"></span> AI future-ready dla firm SMB</span>
+          <h1>Microsoft 365 dla firm — prosto, bezpiecznie, <span style="color:rgba(90,167,255,.95)">AI‑ready</span></h1>
+          <p class="sub">
+            Licencje, wdrożenie, zabezpieczenia, backup oraz Copilot — wszystko w jednym miejscu.
+            Standaryzujemy środowisko Microsoft 365 tak, by działało wydajnie i było gotowe na AI.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#cennik">Dobierz pakiet</a>
+            <a class="btn" href="#kontakt">Bezpłatna analiza</a>
+            <a class="btn ghost" href="#scenariusze">Zobacz scenariusze</a>
+          </div>
+
+          <div class="mini" aria-label="Najczęstsze cele klientów">
+            <span>✅ Porządek w plikach i mailu</span>
+            <span>🔒 Ochrona przed ransomware</span>
+            <span>🤖 Bezpieczne AI (Copilot)</span>
+            <span>💾 Backup danych M365</span>
+          </div>
+        </div>
+
+        <aside class="sideCard">
+          <div>
+            <h3>Co dostajesz jako SMB?</h3>
+            <p>Jasne decyzje zakupowe, szybkie wdrożenie i standard bezpieczeństwa, który nie przeszkadza w pracy.</p>
+
+            <div class="kpis">
+              <div class="kpi">
+                <div class="n">1 hub</div>
+                <div class="l">Licencje + wdrożenie + opieka</div>
+              </div>
+              <div class="kpi">
+                <div class="n">AI‑ready</div>
+                <div class="l">Dane, dostęp i governance</div>
+              </div>
+              <div class="kpi">
+                <div class="n">Ransomware</div>
+                <div class="l">Backup + zabezpieczenia</div>
+              </div>
+              <div class="kpi">
+                <div class="n">SMB‑first</div>
+                <div class="l">Prosto. Bez „konsultingu”.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accentLine"></div>
+
+          <div class="row" style="justify-content:space-between; margin-top: 12px;">
+            <div>
+              <div style="font-weight:800; letter-spacing:-.2px;">Start w 15 minut</div>
+              <div class="muted" style="font-size:12px;">krótka rozmowa + kierunek</div>
+            </div>
+            <a class="btn primary" href="#kontakt">Umów</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -> SOLUTION -->
+  <section id="problem" style="padding-top: 16px;">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>SMB ma jeden problem: chaos</h2>
+          <p class="lead">A potem przychodzi AI. Bez porządku w danych i dostępie — AI nie pomoże. Może zaszkodzić.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>„Każdy robi po swojemu”</h3>
+          <p>Pliki w wielu miejscach, brak standardów, brak widoczności i kontroli.</p>
+          <span class="tag">Skutek: spadek produktywności</span>
+        </div>
+        <div class="card alt">
+          <h3>„Boję się ransomware”</h3>
+          <p>Jedno kliknięcie, jeden laptop, jedna luka — i firma traci dostęp do danych.</p>
+          <span class="tag">Skutek: przestój + koszty</span>
+        </div>
+        <div class="card">
+          <h3>„AI jest, ale nie wiemy jak zacząć”</h3>
+          <p>Shadow AI, prywatne konta, brak zasad. Dane mogą trafić tam, gdzie nie powinny.</p>
+          <span class="tag">Skutek: ryzyko + brak efektów</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h3>Rozwiązanie: Microsoft 365 jako standard + AI‑ready</h3>
+        <p class="muted">
+          Uporządkujemy Twoje środowisko Microsoft 365 (tożsamość, dane, urządzenia, zabezpieczenia) i przygotujemy je pod bezpieczne użycie AI — tak, żeby AI działało w ramach firmowych zasad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>Oferta — wszystko w jednym miejscu</h2>
+          <p class="lead">Wybierasz cel biznesowy, my dobieramy licencje i „dowozimy” wdrożenie.</p>
+        </div>
+        <div class="row">
+          <a class="btn ghost" href="#cennik">Zobacz pakiety</a>
+          <a class="btn primary" href="#kontakt">Zapytaj o ofertę</a>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Microsoft 365 (SMB)</h3>
+          <p>Business Basic / Standard / Premium — dobór bez niespodzianek.</p>
+          <ul class="list">
+            <li>E-mail + kalendarz + współdzielenie</li>
+            <li>Teams i współpraca</li>
+            <li>OneDrive i SharePoint</li>
+            <li>Aplikacje Office (w zależności od planu)</li>
+          </ul>
+          <span class="tag">Start: porządek i standard</span>
+        </div>
+
+        <div class="card alt">
+          <h3>Copilot (AI future-ready)</h3>
+          <p>„Pracownik AI” w Word, Excel, Outlook i Teams — bezpiecznie.</p>
+          <ul class="list">
+            <li>Oferty / maile / podsumowania</li>
+            <li>Notatki i zadania ze spotkań</li>
+            <li>Analiza danych i raporty</li>
+            <li>Wyszukiwanie wiedzy firmowej</li>
+          </ul>
+          <span class="tag">Efekt: szybciej + lepiej</span>
+        </div>
+
+        <div class="card">
+          <h3>Bezpieczeństwo + urządzenia</h3>
+          <p>Standard ochrony, który pasuje do SMB i nie utrudnia pracy.</p>
+          <ul class="list">
+            <li>MFA i dostęp warunkowy</li>
+            <li>Zgodność urządzeń (compliance)</li>
+            <li>Ochrona poczty i phishing</li>
+            <li>Podstawy Zero Trust w praktyce</li>
+          </ul>
+          <span class="tag">Efekt: mniej ryzyka</span>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card alt">
+          <h3>Backup Microsoft 365</h3>
+          <p>Twoja realna kopia danych (i realna możliwość odtworzenia).</p>
+          <ul class="list">
+            <li>Odtwarzanie po ransomware</li>
+            <li>Odtwarzanie po usunięciu (także „przypadkowym”)</li>
+            <li>Odtwarzanie po odejściu pracownika</li>
+            <li>Polityki retencji niezależnie od M365</li>
+          </ul>
+          <span class="tag">Najczęstszy powód zakupu: „święty spokój”</span>
+        </div>
+        <div class="card">
+          <h3>Migracje i uporządkowanie danych</h3>
+          <p>Przeniesiemy pocztę i pliki do Microsoft 365 oraz ustawimy standardy pracy.</p>
+          <ul class="list">
+            <li>Migracje z Gmail / home.pl / LH / inne</li>
+            <li>Struktura SharePoint / Teams</li>
+            <li>Uprawnienia i dostęp do danych</li>
+            <li>Szkolenie minimum potrzebne do startu</li>
+          </ul>
+          <span class="tag">Efekt: mniej chaosu → więcej efektów</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIUSZE -->
+  <section id="scenariusze">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>Wybierz scenariusz — to najprostsza droga</h2>
+          <p class="lead">Zamiast czytać o funkcjach, wybierz sytuację z życia firmy.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>🧾 „Chcę uporządkować firmę”</h3>
+          <p>Wdrożenie Microsoft 365, standardy pracy, struktura danych.</p>
+          <span class="tag">Cel: porządek + produktywność</span>
+        </div>
+        <div class="card alt">
+          <h3>🔐 „Boję się ransomware”</h3>
+          <p>Bezpieczeństwo + backup + polityki dostępu. Minimalizacja ryzyka i skutków.</p>
+          <span class="tag">Cel: odporność</span>
+        </div>
+        <div class="card">
+          <h3>🤖 „Chcę używać AI”</h3>
+          <p>Copilot + governance: dane, uprawnienia, zasady wykorzystania AI.</p>
+          <span class="tag">Cel: szybkie efekty bez ryzyka</span>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="card alt">
+          <h3>🚚 „Migracja do Microsoft 365”</h3>
+          <p>Poczta, kalendarze, kontakty, pliki — przeniesione i uporządkowane.</p>
+          <span class="tag">Cel: bezbolesna zmiana</span>
+        </div>
+        <div class="card">
+          <h3>📩 „Chcę lepszą pocztę i współpracę”</h3>
+          <p>Outlook/Exchange + Teams + OneDrive — proste zasady i szybki start.</p>
+          <span class="tag">Cel: komunikacja i współpraca</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCES -->
+  <section id="proces">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>Jak działamy (bez magii i bez lania wody)</h2>
+          <p class="lead">Cztery kroki, które dowożą wynik biznesowy — nie „projekty IT bez końca”.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>1) Analiza (bezpłatna)</h3>
+          <p>Twoje cele + obecna sytuacja + szybkie rekomendacje.</p>
+          <span class="tag">15–30 min</span>
+        </div>
+        <div class="card alt">
+          <h3>2) Projekt</h3>
+          <p>Plan licencji i wdrożenia: co, kiedy, za ile i jaki efekt.</p>
+          <span class="tag">Konkretny roadmap</span>
+        </div>
+        <div class="card">
+          <h3>3) Wdrożenie + zabezpieczenie</h3>
+          <p>Konfiguracja, migracje, standardy, bezpieczeństwo, backup.</p>
+          <span class="tag">Minimalizujemy przestoje</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <h3>4) Opieka i rozwój (AI-ready)</h3>
+        <p class="muted">
+          Utrzymujemy standard i rozwijamy środowisko pod AI: porządek w danych, uprawnienia, zasady, monitoring.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENNIK / PAKIETY -->
+  <section id="cennik">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>Pakiety (Good / Better / Best)</h2>
+          <p class="lead">Najprostszy model dla SMB: wybierasz poziom, my dowozimy wdrożenie.</p>
+        </div>
+      </div>
+
+      <div class="pricing">
+        <div class="priceCard">
+          <div class="badge"><span class="dot" style="background:rgba(232,238,252,.45); box-shadow:none;"></span> Start</div>
+          <div class="priceName">✅ Start</div>
+          <p class="priceDesc">Microsoft 365 + podstawowy standard.</p>
+          <div class="price">Od X <small>/ wdrożenie</small></div>
+          <ul class="bullets">
+            <li>Dobór licencji M365 dla SMB</li>
+            <li>Konfiguracja podstaw (tożsamość, poczta, Teams)</li>
+            <li>Standard plików (OneDrive/SharePoint)</li>
+            <li>Onboarding: „minimum do startu”</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zapytaj o Start</a>
+        </div>
+
+        <div class="priceCard featured">
+          <div class="badge"><span class="dot" aria-hidden="true"></span> Najczęściej wybierane</div>
+          <div class="priceName">🚀 Secure</div>
+          <p class="priceDesc">+ bezpieczeństwo i odporność na incydenty.</p>
+          <div class="price">Od X <small>/ wdrożenie</small></div>
+          <ul class="bullets">
+            <li>Wszystko ze Start</li>
+            <li>MFA + dostęp warunkowy (CA)</li>
+            <li>Zgodność urządzeń (compliance)</li>
+            <li>Podstawy ochrony poczty/phishing</li>
+          </ul>
+          <a class="btn primary" href="#kontakt">Zapytaj o Secure</a>
+        </div>
+
+        <div class="priceCard">
+          <div class="badge" style="border-color: rgba(124,92,255,.40); background: rgba(124,92,255,.12);">
+            <span class="dot" style="background: var(--accent2); box-shadow: 0 0 0 4px rgba(124,92,255,.14);"></span>
+            AI future-ready
+          </div>
+          <div class="priceName">🔥 AI Ready</div>
+          <p class="priceDesc">+ Copilot + governance i przygotowanie danych.</p>
+          <div class="price">Od X <small>/ wdrożenie</small></div>
+          <ul class="bullets">
+            <li>Wszystko z Secure</li>
+            <li>Gotowość pod Copilot (dane, dostęp)</li>
+            <li>Zasady użycia AI (governance)</li>
+            <li>Use case’y i szybkie wdrożenie wartości</li>
+          </ul>
+          <a class="btn" href="#kontakt">Zapytaj o AI Ready</a>
+        </div>
+      </div>
+
+      <p class="hint">
+        * „Od X” — wpisz swoje ceny lub zostaw jako „wycena po analizie”. Dla SMB często lepiej działa „pakiet + zakres” niż twarda kwota.
+      </p>
+    </div>
+  </section>
+
+  <!-- AI READY -->
+  <section id="ai-ready">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>AI future-ready — to nie jest tylko licencja</h2>
+          <p class="lead">
+            Większość firm nie jest gotowa na AI. My przygotowujemy Microsoft 365 tak, aby AI działało <strong>bezpiecznie</strong> i <strong>efektywnie</strong>.
+          </p>
+        </div>
+        <div class="row">
+          <a class="btn ghost" href="#audit">Zrób mini-audyt</a>
+          <a class="btn primary" href="#kontakt">Porozmawiajmy</a>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>📁 Struktura danych</h3>
+          <p>Porządek w SharePoint/Teams i OneDrive, aby AI mogło „widzieć” właściwe informacje.</p>
+          <span class="tag">Efekt: mniej szumu</span>
+        </div>
+        <div class="card alt">
+          <h3>🔑 Dostęp i uprawnienia</h3>
+          <p>AI ma działać w ramach zasad — tylko do tego, do czego użytkownik ma dostęp.</p>
+          <span class="tag">Efekt: mniej ryzyka</span>
+        </div>
+        <div class="card">
+          <h3>🛡️ Governance i bezpieczeństwo</h3>
+          <p>Zasady korzystania z AI, ograniczenie Shadow AI, standardy urządzeń i logowania.</p>
+          <span class="tag">Efekt: kontrola</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI AUDIT -->
+  <section id="audit">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>Mini-audyt: Czy Twoja firma jest gotowa na AI?</h2>
+          <p class="lead">Zaznacz to, co u Ciebie występuje. Dostaniesz prostą ocenę i następny krok.</p>
+        </div>
+      </div>
+
+      <div class="audit">
+        <div class="card alt">
+          <h3>Checklist</h3>
+
+          <label class="check">
+            <input type="checkbox" class="auditCheck" />
+            <span>
+              <strong>Brak backupu Microsoft 365</strong><br />
+              <span class="muted">Nie mam realnej kopii danych i testów odtwarzania.</span>
+            </span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" class="auditCheck" />
+            <span>
+              <strong>Brak MFA / słabe MFA</strong><br />
+              <span class="muted">Logowanie może być przejęte (phishing, wycieki haseł).</span>
+            </span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" class="auditCheck" />
+            <span>
+              <strong>Dane są w chaosie</strong><br />
+              <span class="muted">Pliki są wszędzie, brak standardów i uprawnień.</span>
+            </span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" class="auditCheck" />
+            <span>
+              <strong>Brak standardu urządzeń</strong><br />
+              <span class="muted">Nie wiem, czy urządzenia są zgodne/bezpieczne.</span>
+            </span>
+          </label>
+
+          <label class="check">
+            <input type="checkbox" class="auditCheck" />
+            <span>
+              <strong>Użytkownicy używają prywatnych narzędzi AI</strong><br />
+              <span class="muted">Ryzyko wycieku danych (Shadow AI).</span>
+            </span>
+          </label>
+
+          <div class="row" style="margin-top: 12px;">
+            <button class="btn" id="resetAudit" type="button">Wyczyść</button>
+            <a class="btn primary" href="#kontakt">Chcę plan działania</a>
+          </div>
+        </div>
+
+        <div class="scoreBox">
+          <div>
+            <div class="muted" style="font-size:12px;">Wynik gotowości AI</div>
+            <div class="score" id="score">—</div>
+            <div class="meter" aria-label="Wskaźnik gotowości"><div id="meterBar"></div></div>
+          </div>
+
+          <div class="result" id="result">
+            <strong>Wskazówka:</strong> zaznacz checklistę, aby zobaczyć ocenę i rekomendację.
+          </div>
+
+          <div class="card" style="margin:0; background: rgba(13, 22, 42, .35);">
+            <h3 style="margin-bottom:8px;">Następny krok</h3>
+            <p class="muted" style="margin:0">
+              Jeśli wynik jest niski — zaczynamy od podstaw: dostęp, backup, standard danych i bezpieczeństwo.
+              Potem dokładamy Copilot i scenariusze.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="hint">To jest „mini-audyt” — jeśli chcesz, mogę dodać wersję z wysyłką wyniku do MS Forms / webhook.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="sectionTitle">
+        <div>
+          <h2>FAQ</h2>
+          <p class="lead">Najczęstsze pytania SMB — krótko i konkretnie.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Czym różni się backup od tego, co daje Microsoft 365?</summary>
+          <p>Backup to niezależna kopia i proces odtwarzania. Jest po to, by szybko wrócić do działania po incydencie, błędzie lub usunięciu danych.</p>
+        </details>
+
+        <details>
+          <summary>Czy Copilot jest bezpieczny?</summary>
+          <p>Copilot działa w ramach uprawnień użytkownika. Dlatego kluczowe są: porządek w danych, dobre uprawnienia oraz zasady (governance) — to właśnie robimy w pakiecie AI Ready.</p>
+        </details>
+
+        <details>
+          <summary>Czy muszę mieć Intune / zarządzanie urządzeniami?</summary>
+          <p>Nie zawsze, ale dla bezpieczeństwa i spójności w SMB zwykle warto wdrożyć przynajmniej podstawy standardu urządzeń i dostępu.</p>
+        </details>
+
+        <details>
+          <summary>Ile trwa wdrożenie?</summary>
+          <p>Zależy od liczby kont i migracji, ale większość SMB kończy podstawy w krótkim czasie. W analizie ustalamy zakres i terminy bez zaskoczeń.</p>
+        </details>
+
+        <details>
+          <summary>Czy można używać prywatnych urządzeń?</summary>
+          <p>Tak, ale wymaga to jasnych zasad dostępu i ochrony danych (żeby firma była bezpieczna, a pracownik miał komfort).</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA / CONTACT -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="heroCard" style="padding: 22px;">
+        <span class="pill"><span class="dot"></span> Bezpłatna analiza i dobór</span>
+        <h2 style="margin-top:12px;">Sprawdź, czy Twoja firma jest gotowa na AI</h2>
+        <p class="lead">
+          15–30 minut rozmowy. Dostaniesz kierunek: co zrobić najpierw, jakie pakiety/licencje mają sens i jak szybko uzyskać efekt biznesowy.
+        </p>
+
+        <div class="grid2" style="margin-top: 14px;">
+          <div class="card alt" style="margin:0;">
+            <h3>Opcja 1: Formularz (MS Forms)</h3>
+            <p class="muted">Najprościej: zostaw kontakt, opis firmy i cel. Odpiszemy z propozycją.</p>
+            <div class="row" style="margin-top: 12px;">
+              <!-- PODMIEŃ LINK -->
+              <a class="btn primary" href="https://forms.office.com/" target="_blank" rel="noopener">Otwórz formularz</a>
+              <span class="muted" style="font-size:12px;">(podmień link na swój)</span>
+            </div>
+          </div>
+
+          <div class="card" style="margin:0;">
+            <h3>Opcja 2: Szybki kontakt</h3>
+            <p class="muted">
+              E-mail / telefon / Teams — jak wolisz.
+            </p>
+
+            <ul class="list">
+              <li><strong>E-mail:</strong> <span class="muted">kontakt@microsoftdlafirm.pl</span></li>
+              <li><strong>Telefon:</strong> <span class="muted">+48 XXX XXX XXX</span></li>
+              <li><strong>Teams:</strong> <span class="muted">link do spotkania / booking</span></li>
+            </ul>
+
+            <div class="row" style="margin-top: 12px;">
+              <a class="btn" href="mailto:kontakt@microsoftdlafirm.pl?subject=Bezp%C5%82atna%20analiza%20AI%20Ready&body=Dzie%C5%84%20dobry%2C%0A%0AChcia%C5%82bym%20/Chcia%C5%82abym%20porozmawia%C4%87%20o%20Microsoft%20365%20dla%20firmy.%0A%0ALiczba%20u%C5%BCytkownik%C3%B3w%3A%20%0ABran%C5%BCa%3A%20%0ACel%3A%20%0A%0A">Napisz e-mail</a>
+              <a class="btn primary" href="#cennik">Dobierz pakiet</a>
+            </div>
+          </div>
+        </div>
+
+        <p class="fine">
+          Wskazówka: Jeśli chcesz zwiększyć konwersję, dodaj tu krótkie „social proof” (np. liczba wdrożeń / branże / opinie).
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footGrid">
+      <div>
+        <div class="row">
+          <div class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:9px;"></div>
+          <div>
+            <div style="font-weight:800; letter-spacing:-.2px;">microsoftdlafirm.pl</div>
+            <div class="muted" style="font-size:12px;">Hub sprzedażowy SMB • Microsoft 365 • Security • Backup • Copilot</div>
+          </div>
+        </div>
+        <div class="fine">
+          © <span id="year"></span> microsoftdlafirm.pl. Wszelkie znaki towarowe należą do odpowiednich właścicieli.
+        </div>
+      </div>
+
+      <div class="card" style="margin:0; background: rgba(13, 22, 42, .35);">
+        <h3 style="margin:0 0 6px;">Skróty</h3>
+        <div class="row">
+          <a class="btn ghost" href="#oferta">Oferta</a>
+          <a class="btn ghost" href="#audit">Mini-audyt</a>
+          <a class="btn ghost" href="#kontakt">Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ====== Drawer (mobile menu)
+  const drawer = document.getElementById('drawer');
+  const hamburger = document.getElementById('hamburger');
+  const closeDrawer = document.getElementById('closeDrawer');
+
+  function openDrawer(){
+    drawer.style.display = 'block';
+    drawer.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function hideDrawer(){
+    drawer.style.display = 'none';
+    drawer.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger?.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    expanded ? hideDrawer() : openDrawer();
+  });
+  closeDrawer?.addEventListener('click', hideDrawer);
+  drawer?.addEventListener('click', (e) => {
+    if(e.target === drawer) hideDrawer();
+  });
+  document.querySelectorAll('.js-close').forEach(a => a.addEventListener('click', hideDrawer));
+
+  // ====== Mini-audit scoring
+  const checks = Array.from(document.querySelectorAll('.auditCheck'));
+  const scoreEl = document.getElementById('score');
+  const resultEl = document.getElementById('result');
+  const meterBar = document.getElementById('meterBar');
+  const resetBtn = document.getElementById('resetAudit');
+
+  function updateAudit(){
+    const total = checks.length;
+    const badCount = checks.filter(c => c.checked).length;
+
+    // Readiness score: fewer issues => higher score
+    const readiness = Math.round(((total - badCount) / total) * 100);
+
+    scoreEl.textContent = readiness + "%";
+    meterBar.style.width = readiness + "%";
+
+    let label, msg;
+    if (readiness >= 80){
+      label = "Dobra gotowość";
+      msg = "Masz bazę. Następny krok: dopracuj governance i wybierz 2–3 use case’y Copilot, żeby szybko dowieźć wartość.";
+    } else if (readiness >= 55){
+      label = "Średnia gotowość";
+      msg = "Zacznij od porządku w danych i dostępie + podstaw bezpieczeństwa. Potem wdrażaj AI, żeby uniknąć Shadow AI i ryzyka.";
+    } else {
+      label = "Niska gotowość";
+      msg = "Najpierw fundamenty: MFA / dostęp warunkowy, backup, standard danych i urządzeń. Dopiero potem AI daje bezpieczne efekty.";
+    }
+
+    resultEl.innerHTML = "<strong>" + label + ":</strong> " + msg;
+  }
+
+  checks.forEach(c => c.addEventListener('change', updateAudit));
+  resetBtn?.addEventListener('click', () => {
+    checks.forEach(c => c.checked = false);
+    scoreEl.textContent = "—";
+    meterBar.style.width = "0%";
+    resultEl.innerHTML = "<strong>Wskazówka:</strong> zaznacz checklistę, aby zobaczyć ocenę i rekomendację.";
+  });
+
+  // ====== Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
