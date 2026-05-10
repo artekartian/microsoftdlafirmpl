@@ -518,14 +518,24 @@ header nav ul {
       *{ transition: none !important; scroll-behavior: auto; }
     }
 
+    html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+
 /* === HARD OVERRIDE: drawer zawsze w tej samej wersji === */
 
 /* panel ma przewijanie, żeby nic nie "znikało" przy małej wysokości */
 .drawer .panel{
   display: flex !important;
   flex-direction: column !important;
-  height: 100dvh !important;
+  height: 100vh !important;
   overflow: hidden !important;
+  right: 0; top: 0;
+  max-width: 100vw;
+  
+
 }
 
 /* nav zajmuje miejsce i nie może zniknąć */
