@@ -60,7 +60,7 @@
     /* --- Header --- */
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:nowrap;}
     .brand{flex:0 0 auto;min-width:0;display:flex;align-items:center;gap:12px;}
-    header nav{flex:1 1 auto;min-width:0;}
+   
     header nav ul{display:flex;gap:6px;list-style:none;padding:0;margin:0;align-items:center;flex-wrap:nowrap;white-space:nowrap;}
     .actions{flex:0 0 auto;display:flex;gap:8px;flex-wrap:nowrap;white-space:nowrap;align-items:center;}
     .logo{
@@ -338,7 +338,9 @@
   }
     }
     header{position:sticky;top:0;z-index:1000;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(10,15,30,.85);}
-    header .nav{padding-top:10px;}
+    header .nav{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;}
+    header .nav nav{justify-self:center;}
+    header .nav nav ul{display:flex;gap:6px;list-style:none;padding:0;margin:0;align-items:center;flex-wrap:nowrap;white-space:nowrap;}
 
 
 .kontaktGrid{display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:stretch;}
