@@ -391,3 +391,37 @@ footer{
 #cookieReopen:hover{transform:scale(1.05);border-color:rgba(90,167,255,.35);background:rgba(18,28,51,.98);}
 #cookieReopen.show{display:flex;}
 #cookieReopen svg{width:22px;height:22px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ================= SEKCJA #zaufali — logotypy klientow na jasnoszarych kaflach ================= */
+#zaufali{padding:56px 0;position:relative}
+#zaufali .sectionTitle{margin-bottom:20px}
+#zaufali .trustGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+#zaufali .trustTile{display:flex;align-items:center;justify-content:center;background:#fff;border-radius:16px;border:1px solid rgba(232,238,252,.08);box-shadow:0 6px 20px rgba(0,0,0,.20);padding:18px 20px;min-height:88px;min-width:0;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;cursor:default}
+#zaufali .trustTile:hover{transform:translateY(-3px);background:#fafbff;box-shadow:0 14px 36px rgba(124,92,255,.20);border-color:rgba(124,92,255,.35)},92,255,.35)}
+#zaufali .trustTile img{max-width:100%;max-height:52px;width:auto;height:auto;object-fit:contain;display:block;filter:none;transition:transform .2s ease}
+#zaufali .trustTile:hover img{transform:scale(1.04)}
+#zaufali .trustTile img{max-width:100%;max-height:52px;width:auto;height:auto;object-fit:contain;display:block;filter:none;transition:transform .2s ease}
+/* Responsive — mobile-first */
+@media(min-width:600px){#zaufali .trustGrid{grid-template-columns:repeat(3,1fr);gap:16px}#zaufali .trustTile{min-height:96px;padding:20px 22px}#zaufali .trustTile img{max-height:56px}}
+@media(min-width:980px){#zaufali .trustGrid{grid-template-columns:repeat(5,1fr);gap:18px}#zaufali .trustTile{min-height:104px;padding:22px 24px}#zaufali .trustTile img{max-height:60px}}
+@media(min-width:1180px){#zaufali{padding:80px 0}}
+@media(max-width:480px){#zaufali{padding:44px 0}#zaufali .trustGrid{gap:12px}#zaufali .trustTile{min-height:76px;padding:14px 16px;border-radius:14px}#zaufali .trustTile img{max-height:44px}}
+/* ================= KONIEC #zaufali ================= */
+
+/* ================= SEKCJA #partnerstwo ================= */
+#partnerstwo{padding:56px 0;position:relative}
+#partnerstwo .sectionTitle{margin-bottom:20px}
+#partnerstwo .proofGrid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px}
+#partnerstwo .proofItem{display:flex;align-items:center;gap:16px;padding:18px;border-radius:20px;border:1px solid rgba(232,238,252,.08);background:rgba(18,28,51,.45);backdrop-filter:var(--blur);box-shadow:0 8px 24px rgba(0,0,0,.14);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+#partnerstwo .proofItem:hover{transform:translateY(-2px);border-color:rgba(124,92,255,.35);box-shadow:0 14px 36px rgba(124,92,255,.20)}
+#partnerstwo .proofLogo{flex:0 0 auto;width:80px;height:80px;min-width:0;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:14px;padding:10px;overflow:hidden}
+#partnerstwo .proofLogo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+#partnerstwo .proofBody{flex:1 1 auto;min-width:0}
+#partnerstwo .proofBody h3{margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:-.2px;color:var(--text)}
+#partnerstwo .proofBody p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+/* Responsive — mobile-first */
+@media(min-width:600px){#partnerstwo .proofItem{padding:20px;gap:18px}#partnerstwo .proofLogo{width:88px;height:88px}}
+@media(min-width:980px){#partnerstwo .proofGrid{grid-template-columns:1fr 1fr;gap:16px}}
+@media(min-width:1180px){#partnerstwo{padding:80px 0}}
+@media(max-width:480px){#partnerstwo{padding:44px 0}#partnerstwo .proofItem{padding:14px;gap:12px;flex-direction:row}#partnerstwo .proofLogo{width:64px;height:64px;padding:8px;border-radius:12px}#partnerstwo .proofBody h3{font-size:14px}#partnerstwo .proofBody p{font-size:12px}}
+/* ================= KONIEC #partnerstwo ================= */
